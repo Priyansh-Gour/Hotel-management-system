@@ -152,18 +152,20 @@ class CustomerWindow:
         lblSearchBY=Label(TableFrame,text="Search By",font=('times new roman ',12,'bold'),bg="red",fg="white")
         lblSearchBY.grid(row=0,column=0,sticky=W)
 
-        combo_search=ttk.Combobox(TableFrame,width=24,font=('times new roman ',13,'bold'),state="readonly")
+        self.search_var=StringVar()
+        combo_search=ttk.Combobox(TableFrame,width=24,textvariable=self.search_var,font=('times new roman ',13,'bold'),state="readonly")
         combo_search["value"]=("Mobile","Ref")
         combo_search.current(0)
         combo_search.grid(row=0,column=1,padx=2)
 
-        textAddress=Entry(TableFrame,width=29,font=('times new roman ',13,'bold'))
+        self.text=StringVar()
+        textAddress=Entry(TableFrame,width=29,textvariable=self.text,font=('times new roman ',13,'bold'))
         textAddress.grid(row=0,column=2,padx=2)
 
-        btnSearch=Button(TableFrame,text="Search",font=('times new roman ',12,'bold'),bg='black',fg='gold',width=9)
+        btnSearch=Button(TableFrame,text="Search",command=self.search,font=('times new roman ',12,'bold'),bg='black',fg='gold',width=9)
         btnSearch.grid(row=0,column=3,padx=1)
 
-        btnShowAll=Button(TableFrame,text="Show All",font=('times new roman ',12,'bold'),bg='black',fg='gold',width=9)
+        btnShowAll=Button(TableFrame,text="Show All",command=self.Feth_data,font=('times new roman ',12,'bold'),bg='black',fg='gold',width=9)
         btnShowAll.grid(row=0,column=4,padx=1)
 
         # To show data in Table
@@ -307,34 +309,36 @@ class CustomerWindow:
         conn.close()                          
 
     
-    def reset(self):
-        # self.var_ref.set(""),
+    def reset(self):   
+        self.var_ref.set(""),
         self.var_cust_name.set(""),
         self.var_mother.set(""),
-        # self.var_gender.set(""),
+        self.var_gender.set(""),
         self.var_post.set(""),
         self.var_mobile.set(""),
         self.var_email.set(""),
-        # self.var_nationality.set(""),
-        # self.var_id_proof.set(""),
+        self.var_nationality.set(""),
+        self.var_id_proof.set(""),
         self.var_id_number.set(""),
         self.var_address.set("")
 
         x=random.randint(1000, 9999)
         self.var_ref.set(str(x))
     
-    # def search(self):
-    #     conn=mysql.connector.connect(host="localhost",user="root",password="Mypassword@123",database="hms")
-    #     my_cursor=conn.cursor()
+    def search(self):
+        conn=mysql.connector.connect(host="localhost",user="root",password="Mypassword@123",database="hms")
+        my_cursor=conn.cursor()
 
-    #     my_cursor.execute("select * from customer where "+str(self.serch_var.get())+" LIKE '%"+str(self.txt_search.get())+"%'")
-    #     rows=my_cursor.fetchall()
-    #     if len(rows)!=0:
-    #             self.Cust_details_Table.delete(*self.Cust_details_Table.get_children())
-    #             for i in rows:
-    #                     self.Cust_details_Table.insert("",END,values=i)
-    #             conn.commit()
-    #     conn.close() 
+        my_cursor.execute("select * from customer where "+str(self.search_var.get())+" LIKE '%"+str(self.text.get())+"%'")
+        rows=my_cursor.fetchall()
+        if len(rows)!=0:
+                self.Cust_Details_Table.delete(*self.Cust_Details_Table.get_children())
+                for i in rows:
+                        self.Cust_Details_Table.insert("",END,values=i)
+                conn.commit()
+        conn.close()
+
+
 
 
 
