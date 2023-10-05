@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image,ImageTk
+from customer import CustomerWindow
 
 
 
@@ -44,7 +45,7 @@ class HotelManagementSystem:
         btn_frame=Frame(main_frame,bd=4,relief=RIDGE)
         btn_frame.place(x=0,y=35,width=228,height=190)
 
-        cust_btn=Button(btn_frame,text="Customer",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        cust_btn=Button(btn_frame,text="Customer",command=self.customerDetails,width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         cust_btn.grid(row=0,column=0,pady=1)
 
         room_btn=Button(btn_frame,text="Room",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
@@ -81,9 +82,12 @@ class HotelManagementSystem:
 
         lable_img5=Label(main_frame,image=self.photoimg5,bd=4,relief=RIDGE)
         lable_img5.place(x=0,y=420,width=230,height=190)
-
+    # makes sure your indentation is right here this def funtion below should be defined in main class
+    def customerDetails(self):
+        self.newwindow=Toplevel(self.root)
+        self.app=CustomerWindow(self.newwindow)
 
 if __name__=='__main__':
     root= Tk()
     obj=HotelManagementSystem(root)
-    root.mainloop()     
+    root.mainloop()      
