@@ -11,7 +11,7 @@ class HotelManagementSystem:
         self.root.geometry('1550x800+0+0')
 
         # First image
-        img1=Image.open(r"C:\Users\priya\OneDrive\Desktop\My programs\py.programs\Hotel Management system\images\hotel1.webp")
+        img1=Image.open(r"..\Hotel Management system\images\hotel1.webp")
         img1=img1.resize((1550,140),Image.LANCZOS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -19,7 +19,7 @@ class HotelManagementSystem:
         lable_img1.place(x=0,y=0,width=1550,height=140)
 
         # Logo
-        img2=Image.open(r"C:\Users\priya\OneDrive\Desktop\My programs\py.programs\Hotel Management system\images\Logo.webp")
+        img2=Image.open(r"..\Hotel Management system\images\Logo.webp")
         img2=img2.resize((230,140),Image.LANCZOS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -60,12 +60,28 @@ class HotelManagementSystem:
         logOut_btn.grid(row=4,column=0,pady=1)
 
         # right image
-        img3=Image.open(r"C:\Users\priya\OneDrive\Desktop\My programs\py.programs\Hotel Management system\images\hotel1.webp")
+        img3=Image.open(r"..\Hotel Management system\images\picture1.png")
         img3=img3.resize((1310,590),Image.LANCZOS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
-        lable_img3=Label(self.root,image=self.photoimg3,bd=4,relief=RIDGE)
+        lable_img3=Label(main_frame,image=self.photoimg3,bd=4,relief=RIDGE)
         lable_img3.place(x=225,y=0,width=1310,height=590)
+
+        # down image
+        img4=Image.open(r"..\Hotel Management system\images\myh.jpg")
+        img4=img4.resize((230,210),Image.LANCZOS)
+        self.photoimg4=ImageTk.PhotoImage(img4)
+
+        lable_img4=Label(main_frame,image=self.photoimg4,bd=4,relief=RIDGE)
+        lable_img4.place(x=0,y=225,width=230,height=210)
+
+        img5=Image.open(r"..\Hotel Management system\images\khana.jpg")
+        img5=img5.resize((230,190),Image.LANCZOS)
+        self.photoimg5=ImageTk.PhotoImage(img5)
+
+        lable_img5=Label(main_frame,image=self.photoimg5,bd=4,relief=RIDGE)
+        lable_img5.place(x=0,y=420,width=230,height=190)
+
 
 if __name__=='__main__':
     root= Tk()
