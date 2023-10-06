@@ -72,13 +72,13 @@ class RoomBooking:
         label_RoomType=Label(labelframeleft,text="Room Type:",font=("arial",12,"bold"),padx=2,pady=6)
         label_RoomType.grid(row=3,column=0,sticky=W)
 
-        # conn=mysql.connector.connect(host="localhost",user="root",password="Mypassword@123",database="hms")
-        # my_cursor=conn.cursor()
-        # my_cursor.execute("select RoomType from details")
-        # rows=my_cursor.fetchall()
+        conn=mysql.connector.connect(host="localhost",user="root",password="Mypassword@123",database="hms")
+        my_cursor=conn.cursor()
+        my_cursor.execute("select RoomType from details")
+        ide=my_cursor.fetchall()
 
         combo_RoomType=ttk.Combobox(labelframeleft,textvariable=self.var_roomtype,font=("arial",12,"bold"),width=27,state="readonly") 
-        combo_RoomType["value"]=("Single","Double","Luxary")
+        combo_RoomType["value"]=ide
         combo_RoomType.current(0)
         combo_RoomType.grid(row=3,column=1)
 
@@ -86,18 +86,18 @@ class RoomBooking:
         #RoomAvailable
         lblRoomAvailable=Label(labelframeleft,text="Available Room:",font=("arial",12,"bold"),padx=2,pady=6)
         lblRoomAvailable.grid(row=4,column=0,sticky=W)
-        txtRoomAvailable=ttk.Entry(labelframeleft,textvariable=self.var_roomavailable,width=29,font=("arial",13,"bold"))   #ttk used for stylish 
-        txtRoomAvailable.grid(row=4,column=1)
+        # txtRoomAvailable=ttk.Entry(labelframeleft,textvariable=self.var_roomavailable,width=29,font=("arial",13,"bold"))   #ttk used for stylish 
+        # txtRoomAvailable.grid(row=4,column=1)
 
-        # conn=mysql.connector.connect(host="localhost",user="root",password="Mypassword@123",database="hms")
-        # my_cursor=conn.cursor()
-        # my_cursor.execute("select RoomNo from details")
-        # rows=my_cursor.fetchall()
+        conn=mysql.connector.connect(host="localhost",user="root",password="Mypassword@123",database="hms")
+        my_cursor=conn.cursor()
+        my_cursor.execute("select RoomNo from details")
+        rows=my_cursor.fetchall()
         
-        # combo_RoomNo=ttk.Combobox(labelframeleft,textvariable=self.var_roomavailable,font=("arial",12,"bold"),width=27,state="readonly")  
-        # combo_RoomNo["value"]=rows
-        # combo_RoomNo.current(0)
-        # combo_RoomNo.grid(row=4,column=1)
+        combo_RoomNo=ttk.Combobox(labelframeleft,textvariable=self.var_roomavailable,font=("arial",12,"bold"),width=27,state="readonly")  
+        combo_RoomNo["value"]=rows
+        combo_RoomNo.current(0)
+        combo_RoomNo.grid(row=4,column=1)
 
         #Meal
         lblMeal=Label(labelframeleft,text="Meal:",font=("arial",12,"bold"),padx=2,pady=6)
@@ -168,20 +168,20 @@ class RoomBooking:
         lblSearchBy.grid(row=0,column=0,sticky=W,padx=2)
 
         self.serch_var=StringVar()
-        combo_Serach=ttk.Combobox(Table_Frame,font=("arial",12,"bold"),width=24,state="readonly")   
+        combo_Serach=ttk.Combobox(Table_Frame,textvariable=self.serch_var,font=("arial",12,"bold"),width=24,state="readonly")   
         combo_Serach["value"]=("Contact","Room")
         combo_Serach.current(0)
         combo_Serach.grid(row=0,column=1,padx=2)      
 
         self.txt_search=StringVar()
-        txtSearch=ttk.Entry(Table_Frame,width=24,font=("arial",13,"bold"))
+        txtSearch=ttk.Entry(Table_Frame,width=24,textvariable=self.txt_search,font=("arial",13,"bold"))
         txtSearch.grid(row=0,column=2,padx=2)
 
 
-        btnSearch=Button(Table_Frame,text="Search",font=("arial",10,"bold"),bg="black",fg="gold",width=10)
+        btnSearch=Button(Table_Frame,text="Search",command=self.search,font=("arial",10,"bold"),bg="black",fg="gold",width=10)
         btnSearch.grid(row=0,column=3,padx=1)
 
-        btnShowAll=Button(Table_Frame,text="Show All",font=("arial",10,"bold"),bg="black",fg="gold",width=10)
+        btnShowAll=Button(Table_Frame,text="Show All",command=self.fetch_data,font=("arial",10,"bold"),bg="black",fg="gold",width=10)
         btnShowAll.grid(row=0,column=4,padx=1)
 
         #======================Show Data Table=====================
@@ -314,9 +314,9 @@ class RoomBooking:
         self.var_roomavailable.set(""),
         self.var_meal.set(""),
         self.var_noofdays.set(""),
-        self.var_paidtax=StringVar(""),
-        self.var_actualtotal=StringVar(""),
-        self.var_total=StringVar(""),
+        self.var_paidtax=set(""),
+        self.var_actualtotal=set(""),
+        self.var_total=set(""),
 
     # fetching contact
     def Fetch_contact(self):
@@ -402,12 +402,106 @@ class RoomBooking:
                 lbl5=Label(showDataframe,text=row,font=("arial",12,"bold"))
                 lbl5.place(x=90,y=120)
 
+    # search System
+    def search(self):
+        conn=mysql.connector.connect(host="localhost",user="root",password="Mypassword@123",database="hms")
+        my_cursor=conn.cursor()
+
+        my_cursor.execute("select * from room where "+str(self.serch_var.get())+" LIKE '%"+str(self.txt_search.get())+"%'")
+        rows=my_cursor.fetchall()
+        if len(rows)!=0:
+                self.room_table.delete(*self.room_table.get_children())
+                for i in rows:
+                        self.room_table.insert("",END,values=i)
+                conn.commit()
+        conn.close()        
+
+
     def total(self):
-          inDate=self.var_checkin.get()
-          outDate=self.var_checkout.get()
-          inDate=datetime.strptime(inDate,"%d/%m/%Y")
-          outDate=datetime.strptime(outDate,"%d/%m/%Y")
-          self.var_noofdays.set(abs(outDate-inDate).days)
+        inDate=self.var_checkin.get()
+        outDate=self.var_checkout.get()
+        inDate=datetime.strptime(inDate,"%d/%m/%Y")
+        outDate=datetime.strptime(outDate,"%d/%m/%Y")
+        self.var_noofdays.set(abs(outDate-inDate).days)
+
+        if (self.var_meal.get()=="BreakFast" and self.var_roomtype.get()=="laxary"):
+            q1=float(300)
+            q2=float(700)
+            q3=float(self.var_noofdays.get())
+            q4=float(q1+q2)
+            q5=float(q3+q4)
+            Tax="Rs."+str("%.2f"%((q5)*0.18))
+            ST="Rs."+str("%.2f"%((q5)))
+            TT="Rs."+str("%.2f"%(q5+((q5)*0.18)))
+            self.var_paidtax.set(Tax)
+            self.var_actualtotal.set(ST)
+            self.var_total.set(TT)
+
+        elif (self.var_meal.get()=="Lunch" and self.var_roomtype.get()=="Single"):
+            q1=float(100)
+            q2=float(300)
+            q3=float(self.var_noofdays.get())
+            q4=float(q1+q2)
+            q5=float(q3+q4)
+            Tax="Rs."+str("%.2f"%((q5)*0.18))
+            ST="Rs."+str("%.2f"%((q5)))
+            TT="Rs."+str("%.2f"%(q5+((q5)*0.18)))
+            self.var_paidtax.set(Tax)
+            self.var_actualtotal.set(ST)
+            self.var_total.set(TT)
+
+
+
+        elif (self.var_meal.get()=="Dinner" and self.var_roomtype.get()=="Double"):
+            q1=float(200)
+            q2=float(500)
+            q3=float(self.var_noofdays.get())
+            q4=float(q1+q2)
+            q5=float(q3+q4)
+            Tax="Rs."+str("%.2f"%((q5)*0.18))
+            ST="Rs."+str("%.2f"%((q5)))
+            TT="Rs."+str("%.2f"%(q5+((q5)*0.18)))
+            self.var_paidtax.set(Tax)
+            self.var_actualtotal.set(ST)
+            self.var_total.set(TT)
+
+
+        elif (self.var_meal.get()=="Lunch" and self.var_roomtype.get()=="Duplex"):
+            q1=float(600)
+            q2=float(1000)
+            q3=float(self.var_noofdays.get())
+            q4=float(q1+q2)
+            q5=float(q3+q4)
+            Tax="Rs."+str("%.2f"%((q5)*0.18))
+            ST="Rs."+str("%.2f"%((q5)))
+            TT="Rs."+str("%.2f"%(q5+((q5)*0.18)))
+            self.var_paidtax.set(Tax)
+            self.var_actualtotal.set(ST)
+            self.var_total.set(TT)
+
+        elif (self.var_meal.get()=="Dinner" and self.var_roomtype.get()=="Single"):
+            q1=float(600)
+            q2=float(1000)
+            q3=float(self.var_noofdays.get())
+            q4=float(q1+q2)
+            q5=float(q3+q4)
+            Tax="Rs."+str("%.2f"%((q5)*0.18))
+            ST="Rs."+str("%.2f"%((q5)))
+            TT="Rs."+str("%.2f"%(q5+((q5)*0.18)))
+            self.var_paidtax.set(Tax)
+            self.var_actualtotal.set(ST)
+            self.var_total.set(TT)
+
+            
+
+        
+
+        
+
+
+        
+
+
 
 
 
