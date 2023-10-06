@@ -209,7 +209,7 @@ class CustomerWindow:
         self.Cust_Details_Table.column("address",width=100)
 
         self.Cust_Details_Table.pack(fill=BOTH,expand=1)
-        self.Cust_Details_Table.bind("<ButtonRelease>",self.get_cursor)
+        self.Cust_Details_Table.bind("<ButtonRelease-1>",self.get_cursor)
         self.Feth_data()
 
     def add_data(self):
