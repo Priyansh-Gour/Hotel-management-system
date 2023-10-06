@@ -3,7 +3,8 @@ It is Desktop Based Appilication
 
 ---------Table of content:============
   
-INTRODUCTION
+INTRODUCTION:
+
 OBJECTIVE
 HARDWARE SOFTWARE REQUIREMENTS
 DESIGNING AND PLANNING 
@@ -13,20 +14,19 @@ USE CASE DIAGRAM
 FUTURE ENHANCEMENTS
 LIMITATION’S 
 CONCLUSION
-![image](https://github.com/Priyansh-Gour/Hotel-management-system/assets/112331347/a0b4df57-9e77-4f77-9e14-84afcab31a55)
 
 ===================================
 
 
- INTRODUCTION
+ INTRODUCTION:
 
-===> Traditionally, a hotel property management system was defined as a system that enabled a hotel or group of hotels to manage front-office capabilities, such as booking reservations, guest check-in/checkout, room assignment, managing room rates, and billing.
+=> Traditionally, a hotel property management system was defined as a system that enabled a hotel or group of hotels to manage front-office capabilities, such as booking reservations, guest check-in/checkout, room assignment, managing room rates, and billing.
 
-===> We have tried our best to make the complicated process of Design and Development of Hotel Management System as simple as possible using Structured & Modular technique & Menu oriented interface. 
+=> We have tried our best to make the complicated process of Design and Development of Hotel Management System as simple as possible using Structured & Modular technique & Menu oriented interface. 
 
 =======================================
 
-OBJECTIVE
+OBJECTIVE:
 
 The main purpose of my exercise is perform each Employee's activity in computerized way rather          than manually which is time consuming.
 
@@ -65,9 +65,9 @@ Team 4 member College based project:
 Name of project Hotel Management System
 
 Team Name:
-Sandeep Kumar Mehta
-Priyansh Gour
-Yogesh Verma
+Sandeep Kumar Mehta,
+Priyansh Gour,
+Yogesh Verma,
 Sourav Kushwaha
 
 
