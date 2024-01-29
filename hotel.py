@@ -58,7 +58,7 @@ class HotelManagementSystem:
         report_btn=Button(btn_frame,text="Report",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         report_btn.grid(row=3,column=0,pady=1)
 
-        logOut_btn=Button(btn_frame,text="Log Out",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
+        logOut_btn=Button(btn_frame,command=self.Logout_window,text="Log Out",width=22,font=("times new roman",14,"bold"),bg="black",fg="gold",bd=0,cursor="hand2")
         logOut_btn.grid(row=4,column=0,pady=1)
 
         # right image
@@ -95,6 +95,10 @@ class HotelManagementSystem:
     def Details_room(self):
         self.newwindow=Toplevel(self.root)
         self.app=DetailsRoom(self.newwindow)
+    
+    def Logout_window(self):
+        self.root.destroy()
+
 if __name__=='__main__':
     root= Tk()
     obj=HotelManagementSystem(root)
