@@ -28,7 +28,7 @@ CONCLUSION
 
 OBJECTIVE:
 
-The main purpose of my exercise is perform each Employee's activity in computerized way rather          than manually which is time consuming.
+The main purpose of my exercise is perform each Employee's activity in computerized way rather    than manually which is time consuming.
 
 The entire activity is to automate the process of day to day activities of Hotel like. 
 
