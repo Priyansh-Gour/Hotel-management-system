@@ -1,77 +1,109 @@
-# Hotel-management-system
-It is Desktop Based Appilication
+# Hotel Management System
 
----------Table of content:============
-  
-INTRODUCTION:
+It is a Desktop-Based Application
 
-OBJECTIVE
-HARDWARE SOFTWARE REQUIREMENTS
-DESIGNING AND PLANNING 
-TOOLS  AND TECHNOLOGY 
-DFD (DATA FLOW DIAGRAM)
-USE CASE DIAGRAM 
-FUTURE ENHANCEMENTS
-LIMITATION’S 
-CONCLUSION
+---
 
-===================================
+## Table of Contents
 
+1. [Introduction](#introduction)
+2. [Objective](#objective)
+3. [Hardware Requirements](#hardware-requirements)
+4. [Software Requirements](#software-requirements)
+5. [Designing and Planning Tools](#designing-and-planning-tools)
+6. [Technology](#technology)
+7. [DFD (Data Flow Diagram)](#dfd-data-flow-diagram)
+8. [Use Case Diagram](#use-case-diagram)
+9. [Future Enhancements](#future-enhancements)
+10. [Limitations](#limitations)
+11. [Conclusion](#conclusion)
 
- INTRODUCTION:
+---
 
-=> Traditionally, a hotel property management system was defined as a system that enabled a hotel or group of hotels to manage front-office capabilities, such as booking reservations, guest check-in/checkout, room assignment, managing room rates, and billing.
+## Introduction
 
-=> We have tried our best to make the complicated process of Design and Development of Hotel Management System as simple as possible using Structured & Modular technique & Menu oriented interface. 
+Traditionally, a hotel property management system is defined as a system that enables a hotel or group of hotels to manage front-office capabilities, such as booking reservations, guest check-in/check-out, room assignment, managing room rates, and billing.
 
-=======================================
+We have tried our best to simplify the complicated process of designing and developing a Hotel Management System using a structured, modular technique and a menu-oriented interface.
 
-OBJECTIVE:
+---
 
-The main purpose of my exercise is perform each Employee's activity in computerized way rather    than manually which is time consuming.
+## Objective
 
-The entire activity is to automate the process of day to day activities of Hotel like. 
+The main purpose of this project is to perform each employee's activities in a computerized manner rather than manually, which is time-consuming. The goal is to automate the daily activities of a hotel, including:
 
-Room activities very safely,
-Assign a room according to customer's checkout of a computer and
-Releasing the room and finally compute the bill in short time.
-==============================================================
+- Safely managing room activities
+- Assigning rooms according to customer checkouts
+- Releasing rooms
+- Computing bills in a short amount of time
 
-REQUIREMENTS SPECIFICATIONS:
+---
 
-SOFTWARE REQUIREMENTS
+## Hardware Requirements
 
-	LANGUAGE - PYTHON
+- PC with 250GB or more hard disk space
+- PC with 2GB RAM
+- Intel Core i3 processor
 
-	DATABASE - MYSQL
+---
 
-  OPERATING SYSTEM - WINDOWS 
-----------------------------
+## Software Requirements
 
+- **Language:** Python
+- **Database:** MySQL
+- **Operating System:** Windows
 
-PC WITH 250GB OR MORE HARDDISKS 
+---
 
-PC WITH 2GB RAM
+## Designing and Planning Tools
 
-INTEL CORE I3 PROCESSOR 
+*Insert your tools here (e.g., UML tools, database design tools, etc.)*
 
-=================================================================
-![IMG 1](https://github.com/Priyansh-Gour/Hotel-management-system/assets/112331347/f3e62d20-ee3c-4039-b9db-28cea808957e)
-![IMG 2](https://github.com/Priyansh-Gour/Hotel-management-system/assets/112331347/90471ff3-ade4-413c-8c89-29536dec36cc)
-![IMG 3](https://github.com/Priyansh-Gour/Hotel-management-system/assets/112331347/c6653896-89af-4da1-a804-b634631e9c7a)
+---
 
-Team 4 member College based project:
+## Technology
 
-Name of project Hotel Management System
+*Insert the technologies used in your project here (e.g., frameworks, libraries, etc.)*
 
-Team Name:
-Sandeep Kumar Mehta,
-Priyansh Gour,
-Yogesh Verma,
-Sourav Kushwaha
+---
 
+## DFD (Data Flow Diagram)
 
-=--------------------Thank You------------------------=
+*Insert DFD image or description here*
 
+---
 
+## Use Case Diagram
 
+*Insert Use Case Diagram image or description here*
+
+---
+
+## Future Enhancements
+
+*Discuss potential future enhancements for your project here*
+
+---
+
+## Limitations
+
+*Discuss any limitations of your project here*
+
+---
+
+## Conclusion
+
+This project demonstrates an effective way to manage hotel operations efficiently through automation, significantly reducing the time and effort required for daily activities.
+
+---
+
+### Team Members
+
+- Sandeep Kumar Mehta
+- Priyansh Gour
+- Yogesh Verma
+- Sourav Kushwaha
+
+---
+
+Thank You!
