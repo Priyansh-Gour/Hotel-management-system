@@ -1,48 +1,59 @@
-It is Desktop Based Appilication
+# Hotel Management System
 
----------Table of content:============
+**Desktop-Based Application**
 
-INTRODUCTION:
+---
 
-OBJECTIVE HARDWARE SOFTWARE REQUIREMENTS DESIGNING AND PLANNING TOOLS AND TECHNOLOGY DFD (DATA FLOW DIAGRAM) USE CASE DIAGRAM FUTURE ENHANCEMENTS LIMITATION’S CONCLUSION
+## Table of Contents
 
-===================================
+1. [Introduction](#introduction)
+2. [Objective](#objective)
+3. [Requirements Specifications](#requirements-specifications)
+   - [Software Requirements](#software-requirements)
+   - [Hardware Requirements](#hardware-requirements)
+4. [Team Members](#team-members)
 
-INTRODUCTION:
+---
 
-=> Traditionally, a hotel property management system was defined as a system that enabled a hotel or group of hotels to manage front-office capabilities, such as booking reservations, guest check-in/checkout, room assignment, managing room rates, and billing.
+## Introduction
 
-=> We have tried our best to make the complicated process of Design and Development of Hotel Management System as simple as possible using Structured & Modular technique & Menu oriented interface.
+A hotel property management system enables hotels to manage front-office capabilities like booking reservations, guest check-in/check-out, room assignment, managing room rates, and billing. This system simplifies the design and development process using structured and modular techniques with a menu-oriented interface.
 
-=======================================
+---
 
-OBJECTIVE:
+## Objective
 
-The main purpose of my exercise is perform each Employee's activity in computerized way rather than manually which is time consuming.
+The main purpose of this project is to automate daily hotel activities, including:
 
-The entire activity is to automate the process of day to day activities of Hotel like.
+- Managing room assignments
+- Releasing rooms
+- Computing bills quickly and efficiently
 
-Room activities very safely, Assign a room according to customer's checkout of a computer and Releasing the room and finally compute the bill in short time.
-REQUIREMENTS SPECIFICATIONS:
+---
 
-SOFTWARE REQUIREMENTS
+## Requirements Specifications
 
-LANGUAGE - PYTHON
+### Software Requirements
 
-DATABASE - MYSQL
-OPERATING SYSTEM - WINDOWS
-PC WITH 250GB OR MORE HARDDISKS
+- **Language:** Python
+- **Database:** MySQL
+- **Operating System:** Windows
 
-PC WITH 2GB RAM
+### Hardware Requirements
 
-INTEL CORE I3 PROCESSOR
+- PC with 250GB or more hard disk space
+- 2GB RAM
+- Intel Core i3 processor
 
-================================================================= IMG 1 IMG 2 IMG 3
+---
 
-Team 4 member College based project:
+## Team Members
 
-Name of project Hotel Management System
+- Sandeep Kumar Mehta
+- Priyansh Gour
+- Yogesh Verma
+- Sourav Kushwaha
 
-Team Name: Sandeep Kumar Mehta, Priyansh Gour, Yogesh Verma, Sourav Kushwaha
+---
 
-=--------------------Thank You------------------------=
+**Thank You!**
