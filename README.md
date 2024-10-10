@@ -11,7 +11,9 @@
 3. [Requirements Specifications](#requirements-specifications)
    - [Software Requirements](#software-requirements)
    - [Hardware Requirements](#hardware-requirements)
-4. [Team Members](#team-members)
+4. [Installation Process](#installation-process)
+5. [Running the Application](#running-the-application)
+6. [Team Members](#team-members)
 
 ---
 
@@ -47,13 +49,50 @@ The main purpose of this project is to automate daily hotel activities, includin
 
 ---
 
-## Team Members
+## Installation Process
 
-- Sandeep Kumar Mehta
-- Priyansh Gour
-- Yogesh Verma
-- Sourav Kushwaha
+1. **Install Python:**
+   - Download the latest version of Python from [python.org](https://www.python.org/downloads/).
+   - Follow the installation instructions for your operating system.
+
+2. **Install MySQL:**
+   - Download MySQL Community Server from [mysql.com](https://dev.mysql.com/downloads/mysql/).
+   - Follow the installation guide to set up MySQL on your system.
+
+3. **Install Required Python Packages:**
+   - Open a command prompt and install the necessary packages using pip:
+     ```bash
+     pip install mysql-connector-python
+     ```
+
+4. **Clone the Repository:**
+   - Clone this repository to your local machine:
+     ```bash
+     git clone https://github.com/your-username/hotel-management-system.git
+     ```
+   - Navigate to the project directory:
+     ```bash
+     cd hotel-management-system
+     ```
+
+5. **Set Up the Database:**
+   - Open MySQL Workbench or your preferred MySQL client.
+   - Create a new database for the hotel management system.
+   - Run the SQL scripts provided in the repository to set up the necessary tables and initial data.
 
 ---
 
-**Thank You!**
+## Running the Application
+
+1. **Open your command prompt or terminal.**
+2. **Navigate to the project directory:**
+   ```bash
+   cd path/to/hotel-management-system
+## Run the application:
+      python main.py
+## Follow the on-screen instructions to use the hotel management system.
+# Team Members
+1. Sandeep Kumar Mehta
+2. Priyansh Gour
+3. Yogesh Verma
+4. Sourav Kushwaha
